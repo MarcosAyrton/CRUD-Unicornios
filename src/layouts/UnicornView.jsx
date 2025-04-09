@@ -35,31 +35,34 @@ function UnicornView({ unicorns, onCreate, onUpdate, onDelete }) {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center py-10">
       <Button
+        className="rainbow-bg text-white font-bold py-3 px-6 rounded-xl shadow-lg transition transform active:scale-95"
         label="Add Unicorn"
         icon="pi pi-plus"
         onClick={() => openDialog()}
       />
-      <DataTable value={unicorns}>
-        <Column field="name" header="Name" />
-        <Column field="age" header="Age" />
-        <Column field="color" header="Color" />
-        <Column field="power" header="Power" />
+      <DataTable className="bg-red-300" value={unicorns}>
+        <Column className="p-5" field="name" header="Name" />
+        <Column className="p-5" field="age" header="Age" />
+        <Column className="p-5" field="color" header="Color" />
+        <Column className="p-5" field="power" header="Power" />
         <Column
           body={(rowData) => (
-            <>
+            <div className="flex m-5">
               <Button
+                className=" rainbow-bg text-white font-bold py-2 px-4 rounded-xl shadow-md transition-all duration-300 transform active:scale-95 hover:!bg-yellow-400 hover:!bg-none hover:!animate-none"
                 label="Edit"
                 icon="pi pi-pencil"
                 onClick={() => openDialog(rowData)}
               />
               <Button
+                className=" ml- rainbow-bg text-white font-bold py-2 px-4 rounded-xl shadow-md transition-all duration-300 transform active:scale-95 hover:!bg-red-700 hover:!bg-none hover:!animate-none"
                 label="Delete"
                 icon="pi pi-trash"
                 onClick={() => handleDelete(rowData._id)}
               />
-            </>
+            </div>
           )}
         />
       </DataTable>

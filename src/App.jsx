@@ -6,11 +6,13 @@ import "./App.css";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<UnicornContainer />} />
-      </Routes>
-    </Router>
+    <div className="bg-indigo-300 h-screen">
+      <Router>
+        <Routes>
+          <Route path="/" element={<UnicornContainer />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
